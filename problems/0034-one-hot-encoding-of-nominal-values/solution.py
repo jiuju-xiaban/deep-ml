@@ -10,6 +10,6 @@ def to_categorical(x: torch.Tensor, n_col: Optional[int] = None) -> torch.Tensor
         n_col=int(torch.max(x).item())+1
     # return torch.nn.functional.one_hot(x,num_classes=n_col).float()
     row=x.shape[0]
-    output=torch.zeros(row,n_col,dtype=float)
+    output=torch.zeros(row,n_col,dtype=torch.float)
     output[torch.arange(row),x]=1.0
     return output
